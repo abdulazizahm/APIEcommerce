@@ -1,0 +1,16 @@
+F:\Ecommerce\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+F:\Ecommerce\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+F:\Ecommerce\BL\bin\Debug\BL.dll.config
+F:\Ecommerce\BL\bin\Debug\BL.dll
+F:\Ecommerce\BL\bin\Debug\BL.pdb
+F:\Ecommerce\BL\bin\Debug\DAL.dll
+F:\Ecommerce\BL\bin\Debug\DAL.pdb
+F:\Ecommerce\BL\bin\Debug\DAL.dll.config
+F:\Ecommerce\BL\bin\Debug\AutoMapper.xml
+F:\Ecommerce\BL\bin\Debug\EntityFramework.xml
+F:\Ecommerce\BL\bin\Debug\EntityFramework.SqlServer.xml
+F:\Ecommerce\BL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+F:\Ecommerce\BL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Ecommerce\BL\obj\Debug\BL.csproj.CopyComplete
+F:\Ecommerce\BL\obj\Debug\BL.dll
+F:\Ecommerce\BL\obj\Debug\BL.pdb

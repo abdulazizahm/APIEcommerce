@@ -1,0 +1,441 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3748CF2-A816-4480-98A2-286297D2BF88}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApi2</RootNamespace>
+    <AssemblyName>WebApi2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.2.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\System.Web.Cors.dll" />
+    <Content Include="bin\WebApi2.dll" />
+    <Content Include="bin\WebApi2.pdb" />
+    <Content Include="Content\Admin\assets\css\material-dashboard.css" />
+    <Content Include="Content\Admin\assets\css\material-dashboard.min.css" />
+    <Content Include="Content\Admin\assets\demo\demo.css" />
+    <Content Include="Content\Admin\assets\demo\demo.js" />
+    <Content Include="Content\Admin\assets\img\apple-icon.png" />
+    <Content Include="Content\Admin\assets\img\cover.jpg" />
+    <Content Include="Content\Admin\assets\img\faces\avatar.jpg" />
+    <Content Include="Content\Admin\assets\img\faces\card-profile1-square.jpg" />
+    <Content Include="Content\Admin\assets\img\faces\card-profile2-square.jpg" />
+    <Content Include="Content\Admin\assets\img\faces\marc.jpg" />
+    <Content Include="Content\Admin\assets\img\favicon.png" />
+    <Content Include="Content\Admin\assets\img\mask.png" />
+    <Content Include="Content\Admin\assets\img\new_logo.png" />
+    <Content Include="Content\Admin\assets\img\sidebar-1.jpg" />
+    <Content Include="Content\Admin\assets\img\sidebar-2.jpg" />
+    <Content Include="Content\Admin\assets\img\sidebar-3.jpg" />
+    <Content Include="Content\Admin\assets\img\sidebar-4.jpg" />
+    <Content Include="Content\Admin\assets\js\core\bootstrap-material-design.min.js" />
+    <Content Include="Content\Admin\assets\js\core\jquery.min.js" />
+    <Content Include="Content\Admin\assets\js\core\popper.min.js" />
+    <Content Include="Content\Admin\assets\js\material-dashboard.js" />
+    <Content Include="Content\Admin\assets\js\material-dashboard.min.js" />
+    <Content Include="Content\Admin\assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="Content\Admin\assets\js\plugins\chartist.min.js" />
+    <Content Include="Content\Admin\assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\Imgs\default.jpg" />
+    <Content Include="Content\Imgs\Products\1.jpg" />
+    <Content Include="Content\Imgs\Products\default.jpg" />
+    <Content Include="Content\Imgs\Sub_Categories\1.jpg" />
+    <Content Include="Content\Imgs\Sub_Categories\d2be7f98-e2eb-40f7-8380-930682489dad.jpg" />
+    <Content Include="Content\Imgs\Sub_Categories\default.jpg" />
+    <Content Include="Content\Imgs\Users\1.jpg" />
+    <Content Include="Content\Imgs\Users\7524c347-fcdf-4359-8fba-e9c1d2f8aaa9.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\WebApi2.csproj.FileListAbsolute.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\DetailsPageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
+    <Compile Include="Controllers\WishListController.cs" />
+    <Compile Include="DTO\CustomRatingForProduct.cs" />
+    <Compile Include="DTO\CustomSubCategoryForProduct.cs" />
+    <Compile Include="DTO\CustomWishListForProduct.cs" />
+    <Compile Include="DTO\ProductDetailsDto.cs" />
+    <Compile Include="DTO\ProductDto.cs" />
+    <Compile Include="DTO\RatingDetailsForProductDto.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\WebApi2.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\WebApi2.csproj.CoreCompileInputs.cache" />
+    <Content Include="Content\Admin\assets\js\material-dashboard.js.map" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_alerts.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_cards.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_checkboxes.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_core-bootstrap.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_dark-edition.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_dropdown.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_example-pages.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_fixed-plugin.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_footers.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_headers.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_images.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_info-areas.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_input-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_misc.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_mixins.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_navbar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_popover.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_popups.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_radios.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_responsive.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_ripples.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_social-buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_tables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_tabs.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_togglebutton.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_tooltip.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_type.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\_variables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_alert.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_badge.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_button-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_card.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_carousel.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_close.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_code.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_functions.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_grid.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_images.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_input-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_list-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_media.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_mixins.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_modal.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_nav.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_navbar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_pagination.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_popover.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_print.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_progress.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_reboot.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_root.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_tables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_transitions.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_type.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_utilities.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\_variables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_navbar-align.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\cards\_card-plain.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\cards\_card-profile.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\cards\_card-stats.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-alert.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-card-chart.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-card-plain.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-card-stats.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-card.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-checkboxes.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-colors.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-dropdown.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-fixed-plugin.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-footer.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-heartbeat-animation.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-mixins.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-navbar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-popover-tooltip.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-radios.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-sidebar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-tables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-tabs.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\dark-edition\_dark-variables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_alert.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_animations.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_breakpoints.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_chartist.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_colored-shadows.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_drawer.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_hover.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_layout.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_navbar-colors.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_navs.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_sidebar-color.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_transparency.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_type.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_utilities.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_variables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\plugins\_animate.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\plugins\_chartist.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\plugins\_perfect-scrollbar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_body.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_bootstrap-material-design-base.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_bootstrap-material-design.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_brand.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_buttons.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_card.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_code.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_colors-map.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_colors.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_custom-forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_drawer.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_dropdown.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_forms.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_layout.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_list-group.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_menu.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_modals.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_nav.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_pagination.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_shadow.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_snackbar.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_spacing.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_state.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_tables.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_tooltip.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard\variables\_type.scss" />
+    <Content Include="Content\Admin\assets\scss\material-dashboard.scss" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{60D3C7A3-54F7-44BC-97A6-8FAFB7EB1052}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{6902CD36-2756-403E-ABE7-15AF2F0F475C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9602</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9602/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
